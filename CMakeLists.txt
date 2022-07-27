@@ -47,8 +47,8 @@ if(DEFINED ENV{NDEBUG})
   add_definitions(-DNDEBUG=1 -O2)
 else()
   add_definitions(-g -O0)
-  add_definitions(-fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all)
-  link_libraries("-fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all")
+#   add_definitions(-fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all)
+#   link_libraries("-fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all")
 endif()
 add_definitions(-Wall -Woverflow -Wextra -Wswitch -Wmissing-prototypes -Wstrict-prototypes -Wformat -Wtype-limits -Wundef -Wconversion -Wno-shadow -Wno-conversion -Wno-sign-conversion -Wno-unused-parameter -Wno-sign-compare) # TODO enable -Wconversion -Wsign-conversion -Wsign-compare -Wunused-parameter
 add_definitions(-Wformat -Wformat-security -Wno-declaration-after-statement -Wno-vla) # -Wpointer-arith -pedantic -DPEDANTIC # -Werror
