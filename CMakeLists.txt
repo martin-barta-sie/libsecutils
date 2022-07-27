@@ -75,6 +75,7 @@ set(SECUTIL_LIB_SRC ${SRC_DIR}/certstatus/certstatus.c
     ${SRC_DIR}/connections/conn.c
     ${SRC_DIR}/connections/http.c
     ${SRC_DIR}/connections/tls.c
+    ${SRC_DIR}/credentials/cert.c
     ${SRC_DIR}/credentials/credentials.c
     ${SRC_DIR}/credentials/key.c
     ${SRC_DIR}/credentials/store.c
