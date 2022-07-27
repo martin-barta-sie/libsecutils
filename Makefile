@@ -57,12 +57,16 @@ endif
 # Note: stuff for testing purposes should go here
 ################################################################################
 
-ifdef NDEBUG
+ifdef DEBUG
+    DEBUG_FLAGS ?= -g -O0
+# Add this to get some additional runtime checks.
+# Warning: it's incompatible with tools like Valgrind and you have to add it to the app using this lib too
+#	DEBUG_FLAGS += -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all
+else
     DEBUG_FLAGS ?= -O2
     override DEBUG_FLAGS += -DNDEBUG=1
-else
-    DEBUG_FLAGS ?= -g -O0 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all # not every compiler(version) supports -Og
 endif
+
 override CFLAGS += $(DEBUG_FLAGS) -Wall -Woverflow -Wextra -Wswitch -Wmissing-prototypes -Wstrict-prototypes -Wformat -Wtype-limits -Wundef -Wconversion
 override CFLAGS += -Wno-shadow -Wno-conversion -Wno-sign-conversion -Wno-sign-compare -Wno-unused-parameter # TODO clean up code and enable -Wshadow -Wconversion -Wsign-conversion -Wsign-compare -Wunused-parameter
 override CFLAGS += -Wformat -Wformat-security -Wno-declaration-after-statement -Wno-vla # -Wpointer-arith -pedantic -DPEDANTIC # -Werror
